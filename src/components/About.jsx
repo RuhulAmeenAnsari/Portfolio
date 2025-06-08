@@ -6,10 +6,7 @@ const About = () => {
   return (
     <>
       <section id="about" className="h-screen w-[565px] md:w-full bg-gradient-to-b from-violet-900 to-black flex xl:flex-row flex-col-reverse items-center justify-between lg:px-24 px-10 relative overflow-hidden ">
-        <Spline
-          className="absolute opacity-50 z-0 xl:scale-110 scale-125"
-          scene="https://prod.spline.design/e4sY6kywdIw7ahhX/scene.splinecode"
-        />
+    
         <div className="absolute z-10 top-[55%] md:top-[25%] p-10 xl:z-10 ">
           <motion.h1
             initial={{ opacity: 0, y: 80 }}
@@ -59,10 +56,10 @@ const About = () => {
          
         </div>
         <div>
-          <Spline
+          {/* <Spline
             className="absolute scale-50  xl:right-[-30%] xl:top-[4%] right-3 md:scale-75 top-[-15%]"
             scene="https://prod.spline.design/rbYko6g9er-ggoiJ/scene.splinecode"
-          />
+          /> */}
         </div>
      
       </section>

@@ -34,8 +34,7 @@ function Header() {
     {i:0,id:"about",label:"About"},
     {i:1,id:"skills",label:"Skills"},
     {i:2,id:"project",label:"Project"},
-    {i:3,id:"education",label:"Education"},
-    {i:4,id:"contact",label:"Contact"}
+    {i:3,id:"education",label:"Education"}
   ]
 
   const [ContactFormopen, setContactFormopen] = useState(false);
@@ -146,7 +145,7 @@ function Header() {
           animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
           className="md:hidden px-5 py-5 bg-white overflow-hidden shadow-lg space-y-3 dark:bg-gray-900 "
         >
-          <nav className="flex flex-col space-y-3">
+          <nav className="flex  flex-col space-y-3">
             {menuItems.map((items) => (
               <motion.button
                 initial={{ opacity: 0, y: -20 }}
@@ -164,7 +163,7 @@ function Header() {
                 
               >
                 {items.label}
-                <span className="absolute w-0 h-0.5 left-0 bottom-0 bg-violet-400 group-hover:w-1/5 transition-all duration-300"></span>
+                <span className="absolute w-0 h-0.5 left-44 bottom-0 bg-violet-400 group-hover:w-1/4 transition-all duration-300"></span>
               </motion.button>
             ))}
           </nav>

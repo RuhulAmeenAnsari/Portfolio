@@ -12,7 +12,7 @@ const Projects = () => {
     <>
       <section
         id="project"
-        className="px-20 bg-gradient-to-b from-gray-900 to-black pt-5 h-screen mt-[0] xl:mt-0"
+        className="px-20 bg-gradient-to-b font-sans from-gray-900 to-black pt-5 h-screen mt-[20vh] xl:mt-0"
       >
         <h1 className="text-center font-bold text-5xl mt-[185%] md:mt-10 items-center  font-sans">
           Projects
@@ -33,7 +33,7 @@ const Projects = () => {
               <div className="p-4">
                 <img
                   src={project.img}
-                  className="w-full h-48 rounded-xl object-cover"
+                  className="w-full scale-105 h-48 rounded-xl object-cover"
                   alt=""
                 />
                 <h1 className="text-5xl sm:text-3xl  font-semibold text-white mt-10 mb-4 text-center">
