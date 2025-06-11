@@ -20,6 +20,7 @@ function Education() {
           <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 sm:-translate-x-0 w-1 bg-white h-full"></div>
           {education.map((education, index) => (
             <div
+                key={index}
               id={education.id}
               className={`flex flex-col sm:flex-row items-center mb-16 ${
                 index % 2 == 0 ? "sm:justify-end" : "sm:justify-start"

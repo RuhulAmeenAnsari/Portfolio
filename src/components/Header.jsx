@@ -1,20 +1,62 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiGithub, FiLinkedin, FiMenu, FiX } from "react-icons/fi";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import emailjs from "@emailjs/browser";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const togglemenu = () => setIsOpen(!isOpen);
-  const [isScrolled, setisScrolled] = useState(true)
-  const [ActiveSection, setActiveSection] = useState("")
+  const [isScrolled, setisScrolled] = useState(true);
+  const [ActiveSection, setActiveSection] = useState("");
 
+  const form = useRef();
+  const [isSent, setisSent] = useState(false);
 
+  const sendemail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_fh3k6sh",
+        "template_64sjxmi",
+        form.current,
+        "YC3QYrbPVdBfiAj6k"
+      )
+      .then(
+        () => {
+          setisSent(true);
+          form.current.reset(); // reset fields after msg sent
+          toast.success("email has sent successfully !", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "dark",
+          });
+        },
+        (error) => {
+          toast.error("error sending email", error);
+          toast.error("Failed to send email , please Try Again !", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "dark",
+          });
+        }
+      );
+  };
 
   const handleActiveMenuItem = (sectionid) => {
     setActiveSection(sectionid);
     setIsOpen(false);
-  
+
     const section = document.getElementById(sectionid);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -22,20 +64,19 @@ function Header() {
   };
 
   useEffect(() => {
-    const handlescroll=() => {
-      setisScrolled(window.scrollY>50)
+    const handlescroll = () => {
+      setisScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll",handlescroll)
-    return ()=> window.removeEventListener("scroll",handlescroll)
-  },[])
-  
+    window.addEventListener("scroll", handlescroll);
+    return () => window.removeEventListener("scroll", handlescroll);
+  }, []);
 
   const menuItems = [
-    {i:0,id:"about",label:"About"},
-    {i:1,id:"skills",label:"Skills"},
-    {i:2,id:"project",label:"Project"},
-    {i:3,id:"education",label:"Education"}
-  ]
+    { i: 0, id: "about", label: "About" },
+    { i: 1, id: "skills", label: "Skills" },
+    { i: 2, id: "project", label: "Project" },
+    { i: 3, id: "education", label: "Education" },
+  ];
 
   const [ContactFormopen, setContactFormopen] = useState(false);
   const opencontactform = () => setContactFormopen(true);
@@ -43,7 +84,14 @@ function Header() {
 
   return (
     <>
-      <header className={`fixed top-0 w-full z-50 transition-all duration-300  ${isScrolled ? "h-18  inset-0 bg-black/50 backdrop-blur-sm z-50 shadow-md fixed" : "bg-transparent" }`}>
+      <header
+        className={`fixed top-0 w-full z-50 transition-all duration-300  ${
+          isScrolled
+            ? "h-18  inset-0 bg-black/50 backdrop-blur-sm z-50 shadow-md fixed"
+            : "bg-transparent"
+        }`}
+      >
+        <ToastContainer />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-14 md:h-18 lg:h-22 flex items-center justify-between ">
           <motion.div
             initial={{ opacity: 0, x: -100 }}
@@ -66,7 +114,7 @@ function Header() {
           </motion.div>
           <nav className="lg:flex hidden space-x-8">
             {menuItems.map((items) => (
-              <motion.button 
+              <motion.button
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
@@ -76,9 +124,13 @@ function Header() {
                   stiffness: 100,
                   duration: 1.2,
                 }}
-                className= {`relative text-gray-800 ${ActiveSection == items.id ? "text-violet-600" : "text-gray-800" } dark:text-gray-200 transition-colors hover:cursor-pointer hover:text-violet-600 hover:dark:text-violet-400 group duration-300`}
+                className={`relative text-gray-800 ${
+                  ActiveSection == items.id
+                    ? "text-violet-600"
+                    : "text-gray-800"
+                } dark:text-gray-200 transition-colors hover:cursor-pointer hover:text-violet-600 hover:dark:text-violet-400 group duration-300`}
                 key={items.id}
-                onClick={()=>handleActiveMenuItem(items.id)}
+                onClick={() => handleActiveMenuItem(items.id)}
               >
                 {items.label}
                 <span className="absolute w-0 h-0.5 left-0 bottom-0 bg-violet-400 group-hover:w-full transition-all duration-300"></span>
@@ -159,8 +211,7 @@ function Header() {
                 }}
                 className="relative text-gray-800 dark:text-gray-200 transition-colors hover:text-violet-600 hover:dark:text-violet-400 hover:cursor-pointer group duration-300"
                 key={items.id}
-                onClick={()=>handleActiveMenuItem(items.id)}
-                
+                onClick={() => handleActiveMenuItem(items.id)}
               >
                 {items.label}
                 <span className="absolute w-0 h-0.5 left-44 bottom-0 bg-violet-400 group-hover:w-1/4 transition-all duration-300"></span>
@@ -221,7 +272,7 @@ function Header() {
                     />
                   </button>
                 </div>
-                <form className="space-y-4">
+                <form onSubmit={sendemail} ref={form} className="space-y-4">
                   <div>
                     <label
                       className="block font-medium text-sm text-gray-300 mb-1"
@@ -231,6 +282,7 @@ function Header() {
                     </label>
                     <input
                       type="text"
+                      name="user_name"
                       className="w-full px-4 py-2 border border-gray-500 rounded-lg focus:ring-2 focus:border-violet-600 "
                       placeholder="Your Name"
                       id="name"
@@ -245,9 +297,23 @@ function Header() {
                     </label>
                     <input
                       type="email"
+                      name="user_email"
                       className="w-full px-4 py-2 border border-gray-500 rounded-lg focus:ring-2 focus:border-violet-600 "
                       placeholder="Your Email"
                       id="email"
+                    />
+                    <label
+                      className="block font-medium text-sm text-gray-300 mt-3 mb-1"
+                      htmlFor="email"
+                    >
+                      Subject
+                    </label>
+                    <input
+                      type="text"
+                      name="subject"
+                      className="w-full px-4 py-2 border border-gray-500 rounded-lg focus:ring-2 focus:border-violet-600 "
+                      placeholder="Enter subject"
+                      id="subject"
                     />
                   </div>
                   <div>
@@ -259,12 +325,14 @@ function Header() {
                     </label>
                     <textarea
                       rows="4"
+                      name="message"
                       className="w-full px-4 py-2 border border-gray-500 rounded-lg focus:ring-2 focus:border-violet-600 "
                       placeholder="How can we help you ?"
                       id="message"
                     />
                   </div>
                   <motion.button
+                    onSubmit={sendemail}
                     type="Submit"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
