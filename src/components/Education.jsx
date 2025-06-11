@@ -6,7 +6,7 @@ function Education() {
     <>
       <section
         id="education"
-        className="py-24 pb-24 md:px-[7vw] px-[12vw] lg:px-[16vw] font-sans bg-gradient-to-b from-black to-gray-900 pt-5 h-auto mt-[455vh] md:mt-[40%]"
+        className="py-24 pb-24 md:px-[7vw] px-[12vw] lg:px-[16vw] font-sans bg-gradient-to-b from-black to-gray-900 pt-5 h-auto "
       >
         <div className="text-center mb-16">
           <h2 className="text-5xl text-white">Education</h2>

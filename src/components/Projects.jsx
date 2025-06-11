@@ -12,9 +12,9 @@ const Projects = () => {
     <>
       <section
         id="project"
-        className="px-20 bg-gradient-to-b font-sans from-gray-900 to-black pt-5 h-screen mt-[20vh] xl:mt-0"
+        className="px-20 bg-gradient-to-b font-sans from-gray-900 to-black min-h-screen"
       >
-        <h1 className="text-center font-bold text-5xl mt-[185%] md:mt-10 items-center  font-sans">
+        <h1 className="text-center font-bold text-5xl  md:mt-10 items-center  font-sans">
           Projects
         </h1>
         <div className="h-1 w-52 mt-2 mx-auto bg-purple-600 "></div>
@@ -43,8 +43,11 @@ const Projects = () => {
                   {project.description}
                 </p>
                 <div className="grid grid-cols-2  mt-5 md:grid-cols-3 gap-3 w-full ">
-                  {project.tags.map((tag,i) => (
-                    <div key={i} className="flex items-center justify-center space-x-2 bg-purple-900 shadow-lg shadow-purple-900 rounded-2xl py-2 px-2">
+                  {project.tags.map((tag, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center justify-center space-x-2 bg-purple-900 shadow-lg shadow-purple-900 rounded-2xl py-2 px-2"
+                    >
                       <span className="text-xs md:text-sm text-purple-500">
                         {tag}
                       </span>
@@ -92,8 +95,11 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                  <a href={SelectedProject.github} className=" bg-purple-800 text-white px-3 py-2 rounded-xl md:flex w-full md:justify-center
-                   hover:cursor-pointer hover:bg-violet-800 hover:text-black">
+                  <a
+                    href={SelectedProject.github}
+                    className=" bg-purple-800 text-white px-3 py-2 rounded-xl md:flex w-full md:justify-center
+                   hover:cursor-pointer hover:bg-violet-800 hover:text-black"
+                  >
                     Get Code
                   </a>
                 </div>
