@@ -14,7 +14,7 @@ const Projects = () => {
         id="project"
         className="px-20 bg-gradient-to-b font-sans from-gray-900 to-black min-h-screen"
       >
-        <h1 className="text-center font-bold text-5xl  md:mt-10 items-center  font-sans">
+        <h1 className="text-center font-bold text-5xl  items-center  font-sans">
           Projects
         </h1>
         <div className="h-1 w-52 mt-2 mx-auto bg-purple-600 "></div>
@@ -33,10 +33,10 @@ const Projects = () => {
               <div className="p-4">
                 <img
                   src={project.img}
-                  className="w-full scale-105 h-48 rounded-xl object-cover"
+                  className="w-full h-20 scale-120 sm:scale-100 sm:h-48 object-cover rounded-xl xl:object-cover overflow-hidden"
                   alt=""
                 />
-                <h1 className="text-5xl sm:text-3xl  font-semibold text-white mt-10 mb-4 text-center">
+                <h1 className="text-3xl sm:text-5xl  font-semibold text-white mt-10 mb-4 text-center">
                   {project.title}
                 </h1>
                 <p className="text-sm mb-3 text-center mt-5 line-clamp-3 text-gray-400">

@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import Spline from "@splinetool/react-spline";
 import { Typewriter } from "react-simple-typewriter";
-
+import profile from "../assets/profile.jpg";
+import Tilt from "react-parallax-tilt";
 const About = () => {
   return (
     <>
       <section
         id="about"
-        className="h-screen w-auto md:w-full bg-gradient-to-b from-violet-900 to-black flex xl:flex-row flex-col-reverse items-center justify-between lg:px-24 px-10 relative overflow-hidden "
+        className="min-h-screen w-auto md:w-full bg-gradient-to-b from-violet-900 to-black flex xl:flex-row flex-col-reverse items-center justify-between lg:px-24 px-10 relative mb-10 sm:mb-1"
       >
         <div className="absolute z-10 top-[55%] md:top-[25%] p-10 xl:z-10 ">
           <motion.h1
@@ -64,11 +64,14 @@ const About = () => {
             </a>
           </motion.p>
         </div>
-        <div>
-          {/* <Spline
-            className="absolute scale-50  xl:right-[-30%] xl:top-[4%] right-3 md:scale-75 top-[-15%]"
-            scene="https://prod.spline.design/rbYko6g9er-ggoiJ/scene.splinecode"
-          /> */}
+        <div className="md:w-1/2 md:justify-end  flex justify-center">
+          <Tilt className="h-[300px]   rounded-full absolute top-20 md:h-[350px] md:right-48 md:top-52 md:scale-115">
+            <img
+              src={profile}
+              className="h-[300px] md:h-[350px] rounded-full border-4 border-purple-700 shadow-[0_10px_20px_rgba(130,69,236,0.5)] "
+              alt="Ruhul Ameen"
+            />
+          </Tilt>
         </div>
       </section>
     </>

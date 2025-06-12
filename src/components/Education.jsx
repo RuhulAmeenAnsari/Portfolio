@@ -26,13 +26,13 @@ function Education() {
                 index % 2 == 0 ? "sm:justify-end" : "sm:justify-start"
               }`}
             >
-              <div className="absolute text-2xl text-black font-bold sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-400 border-3 border-purple-500 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex justify-center items-center z-10 ">
+              <div className="absolute text-2xl text-black font-bold sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-400 border-3 border-purple-500 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex justify-center items-center z-20 ">
                 {education.school.charAt(0)}
               </div>
               <div
-                className={`w-full sm:max-w-md p-4 sm:p-8 rounded-2xl  shadow-2xl border-white border bg-gray-900 backdrop:blur-md shadow-purple-950 ${
+                className={`w-full sm:max-w-md p-4 sm:p-8 rounded-2xl z-10  shadow-2xl border-white border bg-gray-900 backdrop:blur-md shadow-purple-950 ${
                   index % 2 === 0 ? "sm:ml-0" : "sm:mr-0 "
-                }  ml-14 mr-14  transform transition-transform hover:cursor-pointer duration-300 hover:scale-105`}
+                }  ml-14 mr-4 md:mr-14  transform transition-transform hover:cursor-pointer duration-300 hover:scale-105`}
               >
                 <div className="">
                   <h1 className="text-3xl font-bold">{education.degree}</h1>

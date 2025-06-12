@@ -30,7 +30,7 @@ const Skills = () => {
               <h3 className="text-2xl sm:text-3xl  font-semibold text-gray-400 mb-4 text-center">
                 {category.title}
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full ">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full ">
                 {category.skills.map((skill) => (
                   <motion.div
                     initial={{ opacity: 0, y: 100 }}
