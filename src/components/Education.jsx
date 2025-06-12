@@ -26,7 +26,7 @@ function Education() {
                 index % 2 == 0 ? "sm:justify-end" : "sm:justify-start"
               }`}
             >
-              <div className="absolute text-2xl text-black font-bold sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-400 border-3 border-purple-500 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex justify-center items-center z-20 ">
+              <div className="absolute text-2xl text-black font-bold sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-400 border-3 border-purple-500 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex justify-center items-center xl:z-20 ">
                 {education.school.charAt(0)}
               </div>
               <div

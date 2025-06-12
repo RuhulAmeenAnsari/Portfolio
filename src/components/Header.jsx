@@ -52,15 +52,17 @@ function Header() {
         }
       );
   };
-
   const handleActiveMenuItem = (sectionid) => {
     setActiveSection(sectionid);
     setIsOpen(false);
-
-    const section = document.getElementById(sectionid);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+  
+    // Give time for the mobile menu to collapse before scrolling
+    setTimeout(() => {
+      const section = document.getElementById(sectionid);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300); // wait for 300ms after menu close animation
   };
 
   useEffect(() => {

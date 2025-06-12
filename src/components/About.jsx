@@ -64,9 +64,10 @@ const About = () => {
             </a>
           </motion.p>
         </div>
-        <div className="md:w-1/2 md:justify-end  flex justify-center">
+        <div  className="md:w-1/2 md:justify-end  flex justify-center">
           <Tilt className="h-[300px]   rounded-full absolute top-20 md:h-[350px] md:right-48 md:top-52 md:scale-115">
-            <img
+            <motion.img
+            initial={{y:20,x:20,opacity:0}} animate={{y:0,x:0,opacity:1}} transition={{duration:3}}
               src={profile}
               className="h-[300px] md:h-[350px] rounded-full border-4 border-purple-700 shadow-[0_10px_20px_rgba(130,69,236,0.5)] "
               alt="Ruhul Ameen"

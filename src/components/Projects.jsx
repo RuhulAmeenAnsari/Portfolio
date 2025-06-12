@@ -42,7 +42,7 @@ const Projects = () => {
                 <p className="text-sm mb-3 text-center mt-5 line-clamp-3 text-gray-400">
                   {project.description}
                 </p>
-                <div className="grid grid-cols-2  mt-5 md:grid-cols-3 gap-3 w-full ">
+                <div className="grid grid-cols-1  mt-5 md:grid-cols-3 gap-3 w-full ">
                   {project.tags.map((tag, i) => (
                     <div
                       key={i}
